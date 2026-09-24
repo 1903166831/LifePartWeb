@@ -2,12 +2,12 @@
 
 LifePart 官方静态网站。当前四个页面仅含工程占位内容。
 
-技术栈：Vue 3、TypeScript、Vite、npm、原生 CSS。LifePartWeb 与 LifePartApp 相互独立，不共享构建、依赖或资源。
+本仓库根目录就是 LifePart Web 项目根目录。技术栈：Vue 3、TypeScript、Vite、npm、原生 CSS。
 
 ## 本地开发
 
 使用 Node.js 22.12+（22 系列）或 24+，CI 使用 Node.js 22。
-以下命令均在 `LifePartWeb/` 内执行：
+以下命令均在仓库根目录执行：
 
 ```sh
 npm install
@@ -61,10 +61,10 @@ dist/
 
 工作流位于 `.github/workflows/deploy-web.yml`：
 
-1. `main` 上 `LifePartWeb/**` 或工作流自身变化触发，也支持 `workflow_dispatch`。
-2. 构建 Job 检出仓库，设置 Node，在 `LifePartWeb` 内运行 `npm ci`、`npm run build`。
-3. 官方 `upload-pages-artifact` 上传且仅上传 `LifePartWeb/dist`。
-4. 部署 Job 等待构建成功，在 `main` 上通过官方 `configure-pages`、`deploy-pages` 发布到 `github-pages` environment。手动选择其他分支只构建，不发布。
+1. 每次向 `main` push 时自动运行，也支持在 `main` 上手动运行。
+2. 构建 Job 检出仓库，使用 Node.js 22，在仓库根目录运行 `npm ci`、`npm run build`。
+3. 官方 `configure-pages` 配置 Pages，`upload-pages-artifact` 上传根目录的 `dist/`。
+4. 部署 Job 等待构建成功，通过官方 `deploy-pages` 发布到 `github-pages` environment。手动选择其他分支只构建，不发布。
 
 构建只获得 `contents: read`，部署只获得 `pages: write` 与 `id-token: write`。并发组为 `pages`，不取消正在进行的部署。工作流不构建 iOS App。
 
