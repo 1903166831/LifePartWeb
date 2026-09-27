@@ -1,6 +1,6 @@
 # LifePart Web
 
-LifePart 官方静态网站。当前四个页面仅含工程占位内容。
+LifePart 官方静态网站，提供产品展示、隐私说明、使用帮助和 TestFlight 入口。使用条款仍为发布前说明。
 
 本仓库根目录就是 LifePart Web 项目根目录。技术栈：Vue 3、TypeScript、Vite、npm、原生 CSS。
 
