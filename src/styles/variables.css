@@ -1,8 +1,12 @@
 :root {
-  --background: #ffffff;
-  --surface: #f5f5f5;
-  --text-primary: #202020;
-  --text-secondary: #595959;
-  --accent: #2457a7;
-  --border: #dddddd;
+  --background: #fcfaf6;
+  --surface: #fffefd;
+  --surface-soft: #f7f4ef;
+  --text-primary: #203247;
+  --text-secondary: #728298;
+  --accent: #2380dc;
+  --accent-soft: #eaf3ff;
+  --purple-soft: #f4efff;
+  --border: #e8e4df;
+  --shadow: 0 16px 46px rgb(36 48 65 / 6%);
 }
