@@ -9,10 +9,10 @@ import { testFlightUrl } from '../config/site'
 
 type Stage = 'goal' | 'today' | 'content' | 'review'
 const stages: { key: Stage; label: string; description: string }[] = [
-  { key: 'goal', label: '目标', description: '从一个清晰的目标开始，让重要的事真正进入你的日常。' },
-  { key: 'today', label: '今天', description: '把计划变成行动，在每一天的具体安排中，遇见更好的自己。' },
-  { key: 'content', label: '内容', description: '不只记录做了什么，更记录你的思考与发现，让经历成为真正属于你的财富。' },
-  { key: 'review', label: '回看', description: '在时间的坐标里，看见努力的轨迹，也看见一个更完整的自己。' },
+  { key: 'goal', label: '目标', description: '设置目标、截止日期和可用时间，查看接下来七天的预计安排。' },
+  { key: 'today', label: '今天', description: '查看今天的计划，记录进度与专注时间。' },
+  { key: 'content', label: '内容', description: '把笔记、图片和文件保存在对应计划中，随时查找。' },
+  { key: 'review', label: '回看', description: '按日期回看安排、执行记录和关联内容。' },
 ]
 const activeIndex = ref(0)
 const scene = ref<HTMLElement | null>(null)
@@ -48,19 +48,19 @@ onUnmounted(() => { window.removeEventListener('scroll', scheduleUpdate); window
   <main>
     <section class="hero shell" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">更有意识地度过每一天</p>
+        <p class="eyebrow">目标 · 计划 · 执行</p>
         <h1 id="hero-title">人生不仅仅是此刻</h1>
-        <p class="hero-subtitle">把时间变成可回顾的故事，在日常中看见真实的自己。</p>
+        <p class="hero-subtitle">把目标安排到每天，记录进度，回看执行。</p>
         <div class="hero-actions"><a class="primary-link" :href="testFlightUrl" target="_blank" rel="noopener noreferrer">加入 TestFlight 体验版<IconArrowRight :size="18" aria-hidden="true" /></a><a href="#features">了解 LifePart <span aria-hidden="true">↗</span></a></div>
       </div>
       <div class="hero-side">
         <div class="hero-task"><span class="hero-task-icon">▤</span><div><strong>阅读</strong><div class="tiny-progress"><span></span></div></div><div><strong>2 小时 30 分钟</strong><small>进行中 · 50%</small></div></div>
-        <p>设定目标、<br>规划当下、<br>持续记录。<br>在时间的长卷里，<br>看见改变。</p>
+        <p>设定目标、<br>安排每天、<br>记录执行。</p>
       </div>
       <div class="timeline" aria-label="从周一到周六的日期示意"><div v-for="(day, index) in ['09.21', '09.22', '09.23', '今天 · 09.24', '09.25', '09.26']" :key="day" class="timeline-day" :class="{ current: index === 3 }"><span class="timeline-dot"></span><strong>{{ day }}</strong><small>{{ ['周一', '周二', '周三', '周四', '周五', '周六'][index] }}</small></div></div>
     </section>
 
-    <section id="features" class="features-intro shell"><h2>从设定目标，到回顾每一次进步</h2><p>在时间的流动中，建立属于自己的节奏。</p></section>
+    <section id="features" class="features-intro shell"><h2>从设定目标，到回看执行</h2></section>
 
     <section ref="scene" class="desktop-scene shell" aria-label="LifePart 功能展示">
       <div class="scene-sticky">
@@ -71,7 +71,7 @@ onUnmounted(() => { window.removeEventListener('scroll', scheduleUpdate); window
 
     <section class="mobile-story shell" aria-label="LifePart 功能展示"><div v-for="(stage, index) in stages" :key="stage.key" class="mobile-chapter"><div class="mobile-chapter-heading"><span>0{{ index + 1 }} / 04</span><h2>{{ stage.label }}</h2><p>{{ stage.description }}</p></div><FeatureStage :stage="stage.key" @open-preview="openPreview" /></div></section>
 
-    <section class="local-section shell"><div><h2>你的生活，留在你的设备。</h2><p>LifePart 的数据保存在用户设备上。</p><p>你可以记录日常安排，随时回看自己的变化。</p><a class="primary-link" :href="testFlightUrl" target="_blank" rel="noopener noreferrer">加入 TestFlight 体验版<IconArrowRight :size="18" aria-hidden="true" /></a></div><img :src="closingDevices" alt="浅色笔记本电脑、手机和一盆植物的插画" width="610" height="235" /></section>
+    <section class="local-section shell"><div><h2>记录保存在你的设备。</h2><p>当前版本无需注册账号，不提供云同步。</p><p>目标、计划和关联内容保存在当前设备上。</p><a class="primary-link" :href="testFlightUrl" target="_blank" rel="noopener noreferrer">加入 TestFlight 体验版<IconArrowRight :size="18" aria-hidden="true" /></a></div><img :src="closingDevices" alt="浅色笔记本电脑、手机和一盆植物的插画" width="610" height="235" /></section>
   </main>
   <SiteFooter />
   <dialog ref="previewDialog" class="content-dialog" aria-label="阅读笔记详情预览" @click="closeOnBackdrop"><div class="dialog-inner"><div class="dialog-head"><span>阅读笔记详情</span><button type="button" aria-label="关闭预览" @click="closePreview">关闭 ✕</button></div><FeatureStage stage="content" preview /></div></dialog>
