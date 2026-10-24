@@ -9,15 +9,15 @@ import { supportEmail, testFlightUrl } from '../config/site'
 
 const groups = [
   {
-    id: 'getting-started', title: '使用 LifePart', description: '从开始使用到安排每一天，\n这里有一些常见的问题。',
+    id: 'getting-started', title: '使用 LifePart', description: '创建目标、记录进度，\n以及调整后续安排。',
     questions: [
       { title: '如何开始安排我的第一个目标？', answer: '创建目标时，填写名称、截止日期和时间安排，再添加要推进的计划。确认前可以查看接下来七天的安排。保存后，正式安排从下一个可安排的日期开始，创建当天不会生成今日计划。' },
-      { title: '如何记录今天的进度？', answer: '在「今天」打开计划的进度入口，选择当前完成的进度；也可以点击进度圆圈标记完成。当日进度可以修改。每天凌晨 4 点之后，上一天的记录只供回看，不能再补记或修改。' },
+      { title: '如何记录今天的进度？', answer: '在「计划」打开当天计划的进度入口，选择当前完成的进度；也可以点击进度圆圈标记完成。当日进度可以修改。每天凌晨 4 点之后，上一天的记录只供回看，不能再补记或修改。' },
       { title: '安排被打乱了，应该怎么调整？', answer: '今天暂时无法执行的计划可以搁置，剩余时间会重新分配。需要调整后续节奏时，可以在「我的」中打开对应目标，修改时间或计划配置；未来安排会随之更新，过去的执行记录会保留。' },
     ],
   },
   {
-    id: 'content', title: '管理记录', description: '关于记录、回顾和整理，\n帮助你照顾好自己的内容。',
+    id: 'content', title: '管理记录', description: '添加、查找和恢复\n计划中的关联内容。',
     questions: [
       { title: '如何添加笔记、图片或文件？', answer: '从计划卡片的「关联内容」入口添加内容。可以写笔记、选择图片或文件，也可以主动拍照或扫描。内容保存后，可以再次打开查看或编辑。' },
       { title: '如何找到以前的内容和安排？', answer: '在「内容」页面查看和查找已保存的内容；在日历中选择日期，可以回看当时的安排与执行记录。计划关联的内容也可以从对应入口打开。' },
@@ -25,7 +25,7 @@ const groups = [
     ],
   },
   {
-    id: 'devices', title: '数据与设备', description: '关于设备、数据和权限，\n了解你的记录如何保存。',
+    id: 'devices', title: '数据与设备', description: '本地数据保存、\n设备更换与系统权限。',
     questions: [
       { title: '我的数据保存在哪里？', answer: 'LifePart 的数据保存在用户设备上。当前版本不需要注册账号。你主动通过邮件或 TestFlight 提交的反馈，会由相应渠道接收和处理；详情见隐私政策。' },
       { title: '更换设备后，记录会自动同步吗？', answer: '当前版本没有账号与云同步功能，记录不会通过 LifePart 自动同步到另一台设备。更换设备或卸载应用前，请先确认设备上的重要内容已妥善保存。' },
@@ -48,7 +48,7 @@ async function copyEmail() {
   <div class="support-page">
     <SiteHeader />
     <main>
-      <InformationHero title="遇到问题，我们一起解决。" :description="'无论是使用中的小疑问，还是不确定的地方，\n这里整理了一些常见问题，希望能帮到你。'" :illustration="illustration" variant="support" />
+      <InformationHero title="使用帮助" :description="'查看常见问题，\n或通过邮件与 TestFlight 反馈。'" :illustration="illustration" variant="support" />
       <section class="support-faq shell" aria-label="常见问题">
         <div v-for="(group, index) in groups" :key="group.id" class="faq-group">
           <div class="faq-category" :class="{ first: index === 0 }">
@@ -66,7 +66,7 @@ async function copyEmail() {
       <section class="support-contact shell" aria-labelledby="contact-title">
         <div class="contact-intro">
           <h2 id="contact-title">联系我们 · 参与测试</h2>
-          <p>如果你在使用过程中遇到问题，或有任何意见和建议，欢迎通过 TestFlight 或发送邮件与我联系。你的反馈会帮助 LifePart 变得更好。</p>
+          <p>可通过 TestFlight 或邮件反馈问题与建议。反馈问题时，请附上操作步骤、截图和预期结果。</p>
         </div>
         <div class="contact-email">
           <h3><IconMail :size="25" stroke="1.5" aria-hidden="true" />联系邮箱</h3>

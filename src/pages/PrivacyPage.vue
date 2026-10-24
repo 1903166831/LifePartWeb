@@ -42,9 +42,9 @@ onUnmounted(() => {
   <div class="privacy-page">
     <SiteHeader />
     <main>
-      <InformationHero title="隐私政策" description="认真说明每一项与你有关的选择。" :illustration="privacyIllustration" variant="privacy" />
+      <InformationHero title="隐私政策" description="数据保存、权限使用与反馈资料处理。" :illustration="privacyIllustration" variant="privacy" />
       <div class="privacy-intro shell">
-        <p>LifePart 珍视你的信任。<br />这份页面用平实的语言，说明我们如何保存与处理相关信息，<br class="desktop-break" />以及你可以做出的选择。希望它像一封安静的信，让你在使用时更安心。</p>
+        <p>本页说明 LifePart 的数据保存、权限使用和反馈资料处理方式，<br class="desktop-break" />以及你可以管理或删除哪些信息。</p>
         <p class="policy-meta">发布主体：个人开发者 {{ developerName }}<span>生效日期：2026 年 9 月 27 日</span></p>
       </div>
       <div class="privacy-layout shell">
@@ -56,7 +56,6 @@ onUnmounted(() => {
             <span class="section-number" aria-hidden="true">01</span>
             <div>
               <h2 id="data-title">数据保存</h2>
-              <p class="section-opening">你的记录属于你。</p>
               <p>LifePart 的数据保存在用户设备上，包括你创建的目标、计划、执行进度、复盘，以及关联内容中的笔记、图片和文件。当前版本不提供账号或云同步。</p>
               <h3>由你管理的记录</h3>
               <p>你可以在 App 中查看记录，并编辑或删除关联内容。普通删除的关联内容会在“最近删除”中保留 30 天，期间可以恢复；永久删除或保留期结束后，会清理对应内容及附件。已结算的历史执行结果保持原样，不提供补记或修改。</p>
